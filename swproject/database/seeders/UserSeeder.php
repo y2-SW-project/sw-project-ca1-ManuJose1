@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -17,25 +16,26 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //Get the admin and member roles to attach to the users
+        //Get the admin and user roles and attach them to the user
         $role_admin = Role::where('name','admin')->first();
-        $role_member = Role::where('name','member')->first();
+        $role_user = Role::where('name','user')->first();
 
+        // Creates a user with the admin role
         $admin = new User();
         $admin->name = 'Manu Jose';
-        $admin->email = 'MJose@dlgc.ie';
-        $admin->phone = '555 4540646';
+        $admin->email = 'MJose@example.ie';
         $admin->password = Hash::make('password');
         $admin->save();
-        //Attach the admin role to the admin user
+        //attach the role of admin to the admin user
         $admin->roles()->attach($role_admin);
 
-        $member = new User();
-        $member->name = 'Steve Harvey';
-        $member->email = 'Sharvey@dlgc.ie';
-        $member->phone = '555 4540646';
-        $member->password = Hash::make('password');
-        //Attach the member role to the member user
-        $member->roles()->attach($role_member);
+        //Creates a user with the user role
+        $user = new User();
+        $user->name = 'James May';
+        $user->email = 'JMays@example.ie';
+        $user->password = Hash::make('password');
+        $user->save();
+        //attach the user role to the user
+        $user->roles()->attach($role_user);
     }
 }

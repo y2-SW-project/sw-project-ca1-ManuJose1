@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Role;
 
@@ -15,14 +14,19 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+        //Creates the admin role
         $role_admin = new Role();
         $role_admin->name = 'admin';
-        $role_admin->description = 'Managers have access to this role';
+        $role_admin->description = 'A user that is the adminastrator';
         $role_admin->save();
 
-        $role_member = new Role();
-        $role_member->name = 'member';
-        $role_member->description = 'Golf Club members have this role';
-        $role_member->save();
+        //Creates the user role
+        $role_user = new Role();
+        $role_user->name = 'user';
+        $role_user->description = 'An user thats a member of the golf club';
+        $role_user->save();
+
+
+
     }
 }
