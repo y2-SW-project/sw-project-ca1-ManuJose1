@@ -15,4 +15,14 @@ class PageController extends Controller
     {
         return view('about');
     }
+
+    public function makebooking()
+    {
+        return view('makebooking');
+    }
+
+    public function bookings()
+    {
+        return view('bookings');
+    }
 }

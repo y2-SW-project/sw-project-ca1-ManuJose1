@@ -395,14 +395,12 @@
                 color: rgba(107, 114, 128, var(--tw-text-opacity))
             }
         }
-
     </style>
 
     <style>
         body {
             font-family: 'Nunito', sans-serif;
         }
-
     </style>
 </head>
 
@@ -410,29 +408,29 @@
     @extends('layouts.app')
 
     @section('content')
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">Welcome To The Car Dealership</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h1>Ashford Golf Club</h1>
+                    </div>
 
-                        <div class="card-body">
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
-
-                            {{ __('This is the Welcome Page!') }}
-                            <br>
-                            Read more<a href="{{ route('about') }}"> About us</a>
-                            <br>
-                            Take a look at all available cars<a href="{{ route('user.cars.index') }}"> Here</a>
+                    <div class="card-body">
+                        @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
                         </div>
+                        @endif
+
+                        <p>Welcome to the Ashford Golf Club website</p>
+                        <br>
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     @endsection
 
 </body>

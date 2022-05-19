@@ -16,9 +16,9 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->string('course');
             $table->integer('num_players');
             $table->integer('num_holes');
+            $table->string('member_name');
             $table->timestamps();
         });
     }
@@ -27,7 +27,7 @@ class CreateBookingsTable extends Migration
      * Reverse the migrations.
      *
      * @return void
-     */
+     */ 
     public function down()
     {
         Schema::dropIfExists('bookings');

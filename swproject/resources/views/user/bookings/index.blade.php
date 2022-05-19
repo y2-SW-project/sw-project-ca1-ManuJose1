@@ -5,26 +5,26 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">All available cars</div>
+                <div class="card-header">All Bookings</div>
 
                 <div class="card-body">
-                    @if (count($cars) === 0)
-                    <p>No cars for sale right now</p>
-                    @else<table id="cars_table" class="table table-hover">
+                    @if (count($bookings) == 1)
+                    <p>No bookings placed</p>
+                    @else<table id="bookings_table" class="table table-hover">
                         <thead>
                             <th>Title: </th>
                             <th>Description: </th>
                             <th>Price(€): </th>
                         </thead>
                         <tbody>
-                            @foreach ($cars as $car)
-                            <tr data-id="{{ $car->id }}">
-                                <td>{{ $car->title }}</td>
-                                <td>{{ $car->description }}</td>
-                                <td>{{ $car->price }}</td>
+                            @foreach ($bookings as $booking)
+                            <tr data-id="{{ $booking->id }}">
+                                <td>{{ $booking->date }}</td>
+                                <td>{{ $booking->num_players }}</td>
+                                <td>{{ $booking->num_holes }}</td>
 
                                 <td>
-                                    <a href="{{ route('user.cars.show', $car->id) }}" class="btn btn-primary">Show More</a>
+                                    <a href="{{ route('user.bookings.show', $booking->id) }}" class="btn btn-primary">Show More</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -17,8 +17,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         //Get the admin and user roles and attach them to the user
-        $role_admin = Role::where('name','admin')->first();
-        $role_user = Role::where('name','user')->first();
+        $role_admin = Role::where('name', 'admin')->first();
+        $role_user = Role::where('name', 'user')->first();
 
         // Creates a user with the admin role
         $admin = new User();
@@ -32,10 +32,27 @@ class UserSeeder extends Seeder
         //Creates a user with the user role
         $user = new User();
         $user->name = 'James May';
-        $user->email = 'JMays@example.ie';
+        $user->email = 'JMay@example.ie';
         $user->password = Hash::make('password');
         $user->save();
         //attach the user role to the user
+        $user->roles()->attach($role_user);
+
+
+        $user = new User();
+        $user->name = 'Richard Hammond';
+        $user->email = 'Hamster@example.ie';
+        $user->password = Hash::make('password');
+        $user->save();
+
+        $user->roles()->attach($role_user);
+
+        $user = new User();
+        $user->name = 'Jeremy Clarkson';
+        $user->email = 'Jezza@example.ie';
+        $user->password = Hash::make('password');
+        $user->save();
+
         $user->roles()->attach($role_user);
     }
 }

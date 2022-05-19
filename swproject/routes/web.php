@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,10 +33,13 @@ Route::get('/welcome', [App\Http\Controllers\PageController::class, 'welcome'])-
 //About page
 Route::get('/about', [App\Http\Controllers\PageController::class, 'about'])->name('about');
 
-//Page for the list of cars being sold
-Route::get('/user/cars/', [App\Http\Controllers\User\CarController::class, 'index'])->name('user.cars.index');
-//Page with further details on each car being sold
-Route::get('/user/cars/{id}', [App\Http\Controllers\User\CarController::class, 'show'])->name('user.cars.show');
+//Page to make a booking
+Route::get('/makebooking', [App\Http\Controllers\PageController::class, 'about'])->name('makebooking');
+
+//Page for the list of bookings that have been made
+Route::get('/user/bookings', [App\Http\Controllers\User\BookingController::class, 'index'])->name('user.bookings.index');
+//Page with further details on each booking
+Route::get('/user/bookings/{id}', [App\Http\Controllers\User\BookingController::class, 'show'])->name('user.bookings.show');
 
 
 Auth::routes();

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Car;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
-class CarController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
-        return view('user.cars.index',[
-            'cars' => $cars
+        $booking = Booking::all();
+        return view('user.bookings.index',[
+            'bookings' => $booking
         ]);
     }
 
@@ -50,9 +50,9 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        $car = Car::findOrFail($id);
-        return view('user.cars.show',[
-            'car'=> $car
+        $booking = Booking::findOrFail($id);
+        return view('user.bookings.show',[
+            'booking'=> $booking
         ]);
     }
 
