@@ -34,7 +34,7 @@ Route::get('/welcome', [App\Http\Controllers\PageController::class, 'welcome'])-
 Route::get('/about', [App\Http\Controllers\PageController::class, 'about'])->name('about');
 
 //Page to make a booking
-Route::get('/makebooking', [App\Http\Controllers\PageController::class, 'about'])->name('makebooking');
+Route::get('/makebooking', [App\Http\Controllers\PageController::class, 'makebooking'])->name('makebooking');
 
 //Page for the list of bookings that have been made
 Route::get('/user/bookings', [App\Http\Controllers\User\BookingController::class, 'index'])->name('user.bookings.index');

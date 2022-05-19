@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">All Bookings</div>
+                <div class="card-header">All Bookings
+                    <a class="btn btn-primary" href="{{ route('makebooking') }}">Make Booking</a>
+                </div>
 
                 <div class="card-body">
                     @if (count($bookings) == 1)
